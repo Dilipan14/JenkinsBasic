@@ -1,6 +1,6 @@
 const express=require('express');
 const mongoose =require('mongoose');
-const jobsRoute=require('./route/jobs');
+const jobsRoute=require('./route/jobroutes');
 
 const app=express();
 

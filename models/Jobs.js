@@ -1,14 +1,15 @@
 const mongoose=require('mongoose');
-const Schema=mongoose.Schema();
+const uniqueValidator = require('mongoose-unique-validator');
 
-const JobSchema=new Schema({
+const JobSchema=mongoose.Schema({
   class :{
     type:String,
     required:true
   },
   name :{
     type:String,
-    required:true
+    required:true,
+    unique:true
   },
   url:{
     type:String,
@@ -23,5 +24,5 @@ const JobSchema=new Schema({
     required:true
   }
 });
-
+JobSchema.plugin(uniqueValidator);
 mongoose.model('jobs',JobSchema);
