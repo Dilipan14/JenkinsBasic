@@ -2,26 +2,26 @@ const mongoose=require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 
 const JobSchema=mongoose.Schema({
-  class :{
-    type:String,
-    required:true
-  },
   name :{
     type:String,
     required:true,
     unique:true
   },
+  jobType:{
+    type:String,
+    required:true
+  },
   url:{
     type:String,
     required:true
   },
-  buildable:{
-    type:Boolean,
-    required:true
-  },
+  stages:[{
+    type:String,
+    required:false
+  }],
   color:{
     type:String,
-    required:true
+    required:false
   }
 });
 JobSchema.plugin(uniqueValidator);
