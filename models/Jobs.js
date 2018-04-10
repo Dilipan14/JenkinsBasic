@@ -15,14 +15,32 @@ const JobSchema=mongoose.Schema({
     type:String,
     required:true
   },
-  stages:[{
-    type:String,
-    required:false
-  }],
+  stages:[
+    {
+      stageName:{
+        type:String,
+        required:true
+      },
+      stageModified:{
+        type:Boolean
+      },
+      StageModifiedTime:{
+        type: Date,
+        default: Date.now
+      }
+    }],
   color:{
     type:String,
     required:false
+  },
+  jobModified :{
+    type:Boolean,
+    required:false
+  },
+  jobModifiedTime:{
+    type: Date,
+    default: Date.now
   }
-});
-JobSchema.plugin(uniqueValidator);
-mongoose.model('jobs',JobSchema);
+  });
+  JobSchema.plugin(uniqueValidator);
+  mongoose.model('jobs',JobSchema);
